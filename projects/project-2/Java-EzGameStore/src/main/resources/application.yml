@@ -1,0 +1,25 @@
+debug: false
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/EZ_DataBase
+    username: root
+    password: s0485777!DJW
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+    springdoc:
+      swagger-ui:
+        path=/swagger-ui.html
+
+
+
+
+
+com:
+  revature:
+    training: true
+

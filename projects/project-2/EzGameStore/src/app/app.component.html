@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<body>
+  <app-navbar></app-navbar>
+  <ng-container *ngIf="isLoggedIn">
+    <li class="nav-item">
+      <a class="nav-link" (click)="handleLogout()" style="cursor: pointer;">Logout</a>
+    </li>
+  </ng-container>
+  <router-outlet></router-outlet>
+</body>

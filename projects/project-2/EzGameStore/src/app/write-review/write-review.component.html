@@ -1,0 +1,24 @@
+<div class="container">
+    <form #reviewFormGroup="ngForm">
+        <div class="input-group mb-3">
+            <label class="input-group-text">Stars</label>
+            <select class="form-select" name="stars" [(ngModel)]="review.stars">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+                <option value="4">Four</option>
+                <option value="5">Five</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Enter your name" name="author"
+                [(ngModel)]="review.author">
+        </div>
+        <div class="input-group">
+            <span class="input-group-text">Write your review</span>
+            <textarea class="form-control" name="body" [(ngModel)]="review.body"></textarea>
+        </div>
+        <button (click)="handleSubmit($event,reviewFormGroup)" class="btn btn-dark">Submit</button>
+    </form>
+</div>
