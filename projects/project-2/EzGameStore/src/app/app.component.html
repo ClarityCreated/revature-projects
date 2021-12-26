@@ -1,11 +1,23 @@
-<app-header></app-header>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>EzGameStore</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
 <body>
-  <app-navbar></app-navbar>
-  <ng-container *ngIf="isLoggedIn">
-    <li class="nav-item">
-      <a class="nav-link" (click)="handleLogout()" style="cursor: pointer;">Logout</a>
-    </li>
-  </ng-container>
-  <router-outlet></router-outlet>
+    <app-header></app-header>
+    <app-navbar></app-navbar>
+    <ng-container *ngIf="isLoggedIn">
+        <li class="nav-item">
+            <a class="nav-link" (click)="handleLogout()" style="cursor: pointer;">Logout</a>
+        </li>
+    </ng-container>
+    <router-outlet></router-outlet>
 </body>
+
+
+
+</html>

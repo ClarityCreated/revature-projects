@@ -1,40 +1,39 @@
-<div class="d-flex justify-content-center" id="product-list">
-    <div class="list-group-item" *ngFor="let product of products">
-        <div class="row">
+<div class="container">
+    <div class=" d-flex justify-content-center" id="product-list">
+        <div class="list-group-item" *ngFor="let product of products">
+            <div class="row">
 
-            <div class="col-4">
-                <img class="img-fluid" alt="image description" [src]="product.image_path" />
-            </div>
-            <div class="col-8">
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a class="nav-link" [class.active]="currentTab===1"
-                            (click)="handleTabChange($event,1,product.id)" href>
+                <div class="col-4">
+                    <img class="img-fluid" alt="image description" [src]="product.image_path" />
+                </div>
+                <div class="col-8">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link" [class.active]="currentTab===1" (click)="handleTabChange($event,1,product.id)" href>
                             Description
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a [ngClass]="{'nav-link':true,active:currentTab===2}"
-                            (click)="handleTabChange($event,2,product.id)" href>Reviews</a>
-                    </li>
-                </ul>
-                <div class="container">
-                    <div id="text">{{product.name}}</div>
-                    <div id="text">{{product.price|currency:'USD'}}</div>
-                    <button class="btn btn-dark">Buy</button>
-                </div>
-                <hr />
-                <div *ngIf="currentTab===1" id="text">{{product.description | slice:0:500}}</div>
-                <div *ngIf="currentTab===2">
-                    <app-write-review></app-write-review>
+                        </li>
+                        <li class="nav-item">
+                            <a [ngClass]="{'nav-link':true,active:currentTab===2}" (click)="handleTabChange($event,2,product.id)" href>Reviews</a>
+                        </li>
+                    </ul>
+                    <div class="container">
+                        <div id="text">{{product.name}}</div>
+                        <div id="text">{{product.price|currency:'USD'}}</div>
+                        <button class="btn btn-dark">Buy</button>
+                    </div>
                     <hr />
-                    <div *ngFor="let rev of reviews">
-                        <app-review [value]="rev"></app-review>
+                    <div *ngIf="currentTab===1" id="text">{{product.description | slice:0:500}}</div>
+                    <div *ngIf="currentTab===2">
+                        <app-write-review></app-write-review>
+                        <hr />
+                        <div *ngFor="let rev of reviews">
+                            <app-review [value]="rev"></app-review>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <router-outlet></router-outlet>
+        <router-outlet></router-outlet>

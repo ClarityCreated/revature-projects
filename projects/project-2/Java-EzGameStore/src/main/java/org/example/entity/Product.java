@@ -25,6 +25,7 @@ public class Product {
     private double price;
     private String description;
     private String image_path;
+    private boolean is_available;
     @Transient
     @OneToMany(mappedBy="product",cascade=CascadeType.REMOVE)
     private List<RedirectView> reviews;

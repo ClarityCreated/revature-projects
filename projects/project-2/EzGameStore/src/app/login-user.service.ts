@@ -10,16 +10,6 @@ import jwt_decode from 'jwt-decode';
   providedIn: 'root'
 })
 export class LoginUserService {
-
-  // private baseUrl = "http://localhost:8080/login"
-
-  // constructor(private httpClient: HttpClient) { }
-
-
-  // handleLogin(user: User):Observable<object>{
-  //   console.log(user)
-  //   return this.httpClient.post(`${this.baseUrl}`, user);
-  // }
   
   userStream: BehaviorSubject<any> = new BehaviorSubject({})
   userName: string | null = null

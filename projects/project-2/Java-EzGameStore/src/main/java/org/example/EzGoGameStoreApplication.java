@@ -19,7 +19,7 @@ public class EzGoGameStoreApplication {
 //    public void registerUsers(){
 //        User user=new User();
 //        user.setPassword("123");
-//        user.setUsername("lrdGiveMeStrength"); ///make sure its unique if you use this
+//        user.setUsername("anotherTest"); ///make sure its unique if you use this
 //        List<String> authorities1=List.of("customer_account");
 //        user.setAuthorities(authorities1);
 //        userService.register(user);

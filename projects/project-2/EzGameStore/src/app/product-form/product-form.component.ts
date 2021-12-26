@@ -14,7 +14,7 @@ export class ProductFormComponent implements OnInit {
     name: '',
     price:'', 
     image_path: '',
-    is_available: true,
+    _available: true,
     description:''
   };
 
@@ -30,6 +30,7 @@ export class ProductFormComponent implements OnInit {
       }
     });
   }
+  cancel=false;
 
   handleSubmit(event: Event, productFormGroup: NgForm){
     const productFormModel=productFormGroup.value
@@ -37,14 +38,17 @@ export class ProductFormComponent implements OnInit {
       this.productService.updateProduct(this.product.id, productFormModel)
       .subscribe(response =>{
         this.router.navigate(["add-delete-product"])
+        productFormGroup.reset();
       });
     }else
     this.productService.saveProduct(productFormModel)
     .subscribe(response =>{
       this.router.navigate(["add-delete-product"])
+      productFormGroup.reset();
     });
   }
- cancel=false;
+
+
 
  doCancel() {
    this.cancel=true;

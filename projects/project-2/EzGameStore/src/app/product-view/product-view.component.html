@@ -1,11 +1,23 @@
-<div class="card card-body">
-    <div class="row">
-        <div class="col-12">
-            <pre>
-                Name: {{products.name}}
-                Price: {{products.price}}
-                Description: {{products.description}}
-            </pre>
-        </div>
-    </div>
-</div>
+<table class="table">
+    <thead class=col-12>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Image Path</td>
+            <td>Description</td>
+            <td>Available</td>
+        </tr>
+    </thead>
+    <tbody *ngFor="let p of products">
+        <tr>
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.image_path}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p._available}}</td>
+        </tr>
+        <button type="btn btn-danger" (click)="handleDelete($event,p.id)">Delete</button>
+    </tbody>
+</table>

@@ -43,6 +43,7 @@ export class CheckoutFormComponent implements OnInit {
     this.checkoutService.saveAccount(accountFormModel)
     .subscribe(response =>{
       this.router.navigate(["app-checkout-form"])
+      
     });
   }
 

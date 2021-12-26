@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   handleSubmit(event: Event) {
     let credentials = this.loginForm.value;
     this.userService.doLogin(credentials)
+    this.loginForm.reset();
   }
 
   constructor(private fb: FormBuilder, private router: Router, private userService: LoginUserService) { }
