@@ -1,3 +1,3 @@
-# revature-project-1
+# revature-projects
 
-Hello! My project is not yet complete but I am making progress on it. 
+You can find all of my revature projects here. 
