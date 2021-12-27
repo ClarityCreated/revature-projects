@@ -4,15 +4,15 @@
 
   My project was to create a reactive website where users would be able to select accounts to 'transfer' money to and from. It was required to have a 'transfer statement' module, where I should display different views for recent and previous transactions.
 
-  **technologies used**
+  ## technologies used
   * Java (IntlliJ IDEA)
   * JavaScript (Visual Studio Code)
   * MySQL database
 
-  ### frontend development
+  #### frontend development
   I chose to use the development tool *webpack*, it made compiling my project effortless. For styling I used *bootstrap*, it was challenging for me to learn but improved my ability to style pages with ease. 
 
-  ###  backend development 
+  ####  backend development 
   I relied on multiple dependencies that ultimately increased how quickly I was able to write my code. My *pom.xml* file displays what exact dependencies I used. 
 
 ## challenges 
