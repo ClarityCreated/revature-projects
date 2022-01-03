@@ -13,7 +13,7 @@
 
 ---
 
-## 🤔 **What is the EZGo Game Store?**
+## **EZGo Game Store**
 
 * A store where users can login
 * View available games
@@ -24,41 +24,66 @@
 
 ---
 
-## ⚡ **Installation**
+## **Project Description**
 
-1. set up the tables using the SQL file provided, MySQL will be automatically launched. 
-2. cd into a file of your choice, and clone this repository using
-3.  ```bash
-     https://github.com/EsmeraldaVera/EZGoGameStore.git
-    ```
-3. open your editor of joice for Java support (we recommend IntelliJUltimate) 
-4.  **Execute** the `EzGoGameStore.application` folder  under the Java-EZGameStore file and the app will automatically start a server on .
+For this project I worked in a group with 3 other people. My role in this project was to fullstack-develop the reviews feature. I also worked on the styling, navigation, and routing for the front-end.
 
-    ```bash
-    http://localhost:8080/
-    ```
-5. cd into the front end files named EzGameStore and open in editor of choice (we recommend VisualStudio)
-6. **Install** the dependencies using 
+## **Technologies Used**
 
-    ```bash
-     npm install
-    ```
-7. start the front end server using
+* Java (intelliJ IDEA)
+* JavaScript (Visual Studio Code)
+* MySQL Database
 
-    ```bash
-    npm start
-    ```
-    
- 8. Shop and browse to your hearts content. 🚀
+### Front-end Framework
+
+* Angular 2
+* Bootstrap 
+
+### Back-end Dependencies
+
+* Spring-Boot
+* JWT
+* Bcrypt
+* Lombok
+* Jackson (XML)
+
+## **Challenges**
+
+It took some time to figure out how to use GitHub. We struggled figuring out the best practices but once we got it figured out the project started going smoothly. This was our first group project and everyone was working on seperate features. It was hard for me to focus only on my feature once I got to the front-end. Everything had to be tied together and not everyone was able to complete their part of the project. 
 
 ---
 
-## 📸 **Screenshots**
+## **Install & Run**
 
-Preview of web app
+Copy the repository
 
-### 🔺 Login form. Logout button will not appear until a user is logged in.
-![LoginSS](https://user-images.githubusercontent.com/81045242/146657038-8d2b27dc-1ba7-4b36-b08d-9523a58ea55e.PNG)
-![logoutss](https://user-images.githubusercontent.com/81045242/146657039-d4fee4f8-909d-4d20-9b4f-d7c7f0d7dbc0.PNG)
+### **Front-end**
 
-### 🔻 And here will be a products view?
+Open a new terminal at the "EzGameStore" directory and run 
+```
+npm i
+npm start
+```
+
+### **Back-end**
+
+Under the file src/resources/application.yml
+* Add your database followed by username and password
+* Change jpa: ddl-auto: create and run the application
+```
+jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+```
+* After you run the application change jpa: ddl-auto: update
+```
+jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+```
+This method will allow you to auto generate the tables we set up for our database. 
+
+---
+
