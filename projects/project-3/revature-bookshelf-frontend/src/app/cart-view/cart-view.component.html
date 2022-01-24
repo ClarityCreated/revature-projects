@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr>
+            <td>Item#</td>
+            <td>Title</td>
+            <td>Page count</td>
+            <td>Publish date</td>
+            <td>ISBN</td>
+            <td>Author</td>
+            <td>Genre</td>
+            <td>Quantity</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of cart">
+            <td>{{book.id}}</td>
+            <td>{{book.title}}</td>
+            <td>{{book.pageCount}}</td>
+            <td>{{book.publishDate.split('T')[0]}}</td>
+            <td>{{book.isbn}}</td>
+            <td>{{book.author}}</td>
+            <!--             <td>{{book.genres[0] ? book.genres[0].name : ''}}</td>
+ -->
+            <td *ngFor="let prop of book.genres">{{prop.name ? prop.name : ''}}</td>
+            <td>1</td>
+            <td><button (click)="deleteBook(book.id)">delete</button></td>
+        </tr>
+    </tbody>
+</table>

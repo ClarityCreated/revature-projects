@@ -1,0 +1,103 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="../assets/rev-logo(1).png" alt="Revature logo" />
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item m-2">
+          <a class="text-decoration-none" routerLink="books" routerLinkActive="active">View Our Books</a>
+        </li>
+        <li class="nav-item m-2" *ngIf="isLoggedIn">
+          <a routerLink="user-profile" routerLinkActive="active">User Profile</a>
+        </li>
+        <!-- add bellow routerLinkActive="active" [routerLink]="['/login']" -->
+
+      </ul>
+      <app-cart-access *ngIf="isLoggedIn"></app-cart-access>
+
+      <button type="button" class="btn btn-primary btn-sm m-3" routerLinkActive="active" routerLink="/login"
+        value="submit" *ngIf="!isLoggedIn">
+        Login
+      </button>
+      <button type="button" class="btn btn-primary btn-sm m-3" routerLinkActive="active" routerLink="/signup"
+        value="submit" *ngIf="!isLoggedIn">
+        Sign up
+      </button>
+      <button type="button" class="btn btn-primary btn-sm m-3" value="submit" (click)=handleLogout() *ngIf="isLoggedIn">
+        Logout
+      </button>
+      <a routerLink="search" routerLinkActive="active" class="btn btn-warning btn-sm" type="submit">Search</a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-dark text-light">
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Branding -->
+          <a href="#"><img class="logo mb-3" src="../assets/rev-logo(1).png" alt="Revature logo" /></a>
+
+          <p>
+            Hopscotch Will Smith flexitarian prism, shoreditch chambray semi
+            readymade kale chips succulents. 8-bit Slytherin static div
+            elements.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Popular Genres</h6>
+          <p>
+            <a href="#!" class="text-reset">Sci-fi/Fantasy</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Mystery</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Cooking</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Business</a>
+          </p>
+        </div>
+
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
+          <p>
+            <a href="#" class="text-reset">News</a>
+          </p>
+          <p>
+            <a href="#" class="text-reset">Promotions</a>
+          </p>
+          <p>
+            <a href="#" class="text-reset">Forums</a>
+          </p>
+          <p>
+            <a href="#" class="text-reset">Help</a>
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Contact Us</h6>
+          <p>1800 Development Drive</p>
+          <p>Reston, VA 20190</p>
+          <p>contact@revaturebookshelf.com</p>
+          <p>(703) 555-1234</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Copyright -->
+  <div class="text-center p-2">Copyright © 2022 Revature Bookshelf</div>
+</footer>

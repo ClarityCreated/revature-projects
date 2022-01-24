@@ -1,0 +1,48 @@
+pipeline {
+   agent {
+        docker { image 'node:16.13.1-alpine' }
+    }
+    triggers {
+        pollSCM '* * * * *'
+    }
+    environment { 
+        registry = "claritycreated/revature-bookshelf-frontend" 
+        registryCredential = 'docker-hub' 
+        dockerImage = '' 
+    }
+    stages {
+        // CI
+        stage('Install dependencies') { 
+            steps {
+                dir("revature-bookshelf-frontend"){
+                    sh 'npm install'
+                }
+            }
+        }
+        stage('Test') { 
+            steps {
+                dir("revature-bookshelf-frontend"){
+                    // sh 'npm run ci-test'
+                    sh 'echo TEST'
+                }
+            }
+        }
+        stage('Production-Build') { 
+            steps {
+                dir("revature-bookshelf-frontend"){
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Upload to AWS') {
+              steps {
+                  dir("revature-bookshelf-frontend"){
+                    withAWS(region:'us-west-1',credentials:'aws-s3-upload') {
+                       s3Upload(file:'dist/revature-bookshelf-front',bucket:'revature-bookshelf-bucket')
+                    }
+                  }
+              }
+         }
+    }
+}

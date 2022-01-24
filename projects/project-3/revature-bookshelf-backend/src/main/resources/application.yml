@@ -1,0 +1,26 @@
+# Server Port
+server:
+  port: 9001
+
+# JWT secret key for authenticator.utils.JwtUtils
+jwt:
+  secret-key: "SECRET"
+---
+# DB Information
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://localhost:3306/usersdb
+    url: jdbc:mysql://localhost:5000/monoDB
+    username: root
+    password: rootpass
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  config:
+    activate:
+      #profile depends on environment
+      on-profile: default
+      #on-profile: production

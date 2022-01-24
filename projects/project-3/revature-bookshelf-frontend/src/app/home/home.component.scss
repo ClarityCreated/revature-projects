@@ -1,0 +1,96 @@
+// Headings
+@import "../app.component.scss";
+
+.main-heading {
+  color: $secondary-yllw;
+  font-size: 5rem;
+}
+
+.feature-title {
+  font-size: 3rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+h3 {
+  color: $primary-org;
+}
+
+// Buttons
+.btn {
+  width: 115px;
+  height: auto;
+}
+
+// Hero Section
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../../assets/shiromani-kant-mo3FOTG62ao-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.hero-container {
+  margin: 9rem 0 0 6rem;
+}
+
+// Feature Section
+.card {
+  border: none;
+}
+
+.card img {
+  width: 350px;
+  height: 350px;
+}
+
+// Review Section
+.reviews-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url(../../assets/nick-fewings-f2Bi-VBs71M-unsplash.jpg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+blockquote {
+  padding: 2%;
+  font-style: italic;
+  line-height: 145%;
+  position: relative;
+  margin-top: 40px;
+}
+
+blockquote::before {
+  content: "\201C";
+  font-size: 300%;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+
+cite {
+  font-size: 90%;
+  margin-top: 25px;
+  display: block;
+}
+
+cite img {
+  height: 45px;
+  margin-top: 25px;
+  display: block;
+}
+
+// Social Section
+.social-details {
+  font-size: 140%;
+  color: $primary-drkgray;
+  text-shadow: 1px 1px 1px $secondary-blue;
+  transition: transform 0.3s ease-out;
+}
+
+.social-details:hover {
+  transform: translateY(8px);
+  color: $primary-org;
+}

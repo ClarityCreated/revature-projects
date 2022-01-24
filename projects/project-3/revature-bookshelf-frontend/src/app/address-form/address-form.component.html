@@ -1,0 +1,54 @@
+<div class="row text-center justify-content-center">
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">
+                Address Form
+            </div>
+            <div class="card-body">
+                <form [formGroup]="addressForm" (ngSubmit)="handleSubmit()">
+                    <div class="d-flex flex-column">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Street Name</mat-label>
+                            <input name="streetName" matInput placeholder="enter a street name" formControlName="streetName">
+                            <mat-error *ngIf="addressForm.controls['streetName'].invalid">Enter a Street Address</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>City</mat-label>
+                            <input name="city" matInput placeholder="enter a city" formControlName="city">
+                            <mat-error *ngIf="addressForm.controls['city'].invalid">Enter a City</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>State</mat-label>
+                            <input name="state" matInput placeholder="enter a state" formControlName="state">
+                            <mat-error *ngIf="addressForm.controls['state'].invalid">Enter a State</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>Postal Code</mat-label>
+                            <input name="postalCode" matInput placeholder="enter a postal code" formControlName="postalCode" type="number">
+                            <mat-error *ngIf="addressForm.controls['postalCode'].invalid">Enter a Postal Code</mat-error>
+                        </mat-form-field>
+<!-- something funny here -->
+                        <mat-form-field appearance="fill">
+                            <mat-label>Address Type</mat-label>
+                            <mat-select name="types" formControlName="type">
+                                <mat-option *ngFor="let addressType of addressTypes" [value]="addressType">
+                                    {{addressType}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="addressForm.controls['type'].invalid">Select an Address Type</mat-error>
+                        </mat-form-field>
+
+                        <div class="d-flex justify-content-end">
+                            <button class="btn-lg bg-primary" [disabled]="!addressForm.valid">Add Address</button>
+                        </div>
+                    </div>
+                </form>
+                <p>Form Value: {{ addressForm.value | json }}</p>
+                <p>Form Status: {{ addressForm.status }}</p>
+            </div>
+        </div>
+    </div>
+</div>

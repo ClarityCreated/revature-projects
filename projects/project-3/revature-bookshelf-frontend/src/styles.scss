@@ -1,0 +1,59 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$revature-bookshelf-front-primary: mat.define-palette(mat.$indigo-palette);
+$revature-bookshelf-front-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$revature-bookshelf-front-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$revature-bookshelf-front-theme: mat.define-light-theme((
+  color: (
+    primary: $revature-bookshelf-front-primary,
+    accent: $revature-bookshelf-front-accent,
+    warn: $revature-bookshelf-front-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($revature-bookshelf-front-theme);
+
+$primary: #F26925;
+$secondary: #474C55;
+
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+// Fonts
+@font-face {
+  font-family: "revature";
+  src: local("Futura-Std-Book.otf"),
+    url(./assets/fonts/Futura-Std-Book.otf) format("truetype");
+}
+
+html,
+body {
+  background-color: #ffffff;
+  color: #222;
+  font-size: 16px;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    // Duration between tests. * * * * * will test every minute
+    triggers {
+        pollSCM '* * * * *'
+    }
+    // Sequential build commands for mvnw and for docker image
+    stages {
+        stage('Compile') {
+            steps {
+                dir('revature-bookshelf-backend'){
+                    sh './mvnw compile'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('revature-bookshelf-backend'){
+                    sh './mvnw test -D spring.profiles.active=test'
+                }
+            }
+        }
+        stage('Package') {
+            steps {
+                dir('revature-bookshelf-backend'){
+                    sh './mvnw package'
+                }
+            }
+        }
+        stage('Build Docker image') {
+            steps {
+                dir('revature-bookshelf-backend'){
+                    sh './mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=claritycreated/revature-bookshelf-backend'
+                }
+            }
+        }
+        //Docker image is being pushed to dockerhub
+        stage('Push Docker image') {
+            environment {
+                //My Personal docker credentials I configured in Jenkins is being accessed
+                DOCKER_HUB_LOGIN = credentials('docker-hub')
+            }
+            steps {
+                sh 'docker login --username=$DOCKER_HUB_LOGIN_USR --password=$DOCKER_HUB_LOGIN_PSW'
+                sh 'docker push claritycreated/revature-bookshelf-backend'
+            }
+        }
+    }
+}

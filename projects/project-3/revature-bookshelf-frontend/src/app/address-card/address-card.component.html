@@ -1,0 +1,27 @@
+<div class="body card bg-primary mt-5" > <!--style="position: absolute; width: 98%; left: 1%"-->
+    
+    <form [formGroup]= "addressForm" class=" text-dark">
+        <div>
+            <h1 class="address"> Address </h1>
+        </div>
+        <div class = "addressCard">
+            <div class="p-1 ms-5">
+                <label class="labels col-md-3 text-dark"for="streetName">Street</label>
+                <input id="firstName col-md-3" type="text" placeholder={{this.address.streetName}} formControlName="streetName" value={{this.address.streetName}}>
+            </div>
+            <div class="p-1 ms-5">
+                <label class="labels col-md-3"for="city">City</label>
+                <input id="city col-md-3" type="text" placeholder={{this.address.city}} formControlName="city">
+            </div>
+            <div class="p-1 ms-5">
+                <label class="labels col-md-3"for="state">State</label>
+                <input id="state col-md-3" type="text" placeholder={{this.address.state}} formControlName="state">
+            </div>
+            <div class="p-1 ms-5 mb-5">
+                <label class="labels col-md-3"for="postalCode">Postal Code</label>
+                <input id="postalCode col-md-3" type="text" placeholder={{this.address.postalCode}} formControlName="postalCode">
+            </div>
+        </div>
+      
+    </form>
+</div>
